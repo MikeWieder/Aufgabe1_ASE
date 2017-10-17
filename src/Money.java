@@ -24,7 +24,7 @@ public class Money {
         }
         this.full = full;
         this.cents = cents;
-        System.out.println("You have created " + full + " Euros and " + cents + " cents");
+//        System.out.println("You have created " + full + " Euros and " + cents + " cents");
     }
     
     public String toString() {
