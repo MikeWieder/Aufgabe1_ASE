@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class InvoiceBuilder {
     
         ArrayList<LineItem> itemList = new ArrayList<>();
+        InvoiceHeader header;
 
         public InvoiceBuilder() {
             
@@ -23,8 +24,12 @@ public class InvoiceBuilder {
             itemList.add(new LineItem(single,desc,amount));
         }
         
+        public void addHeader(InvoiceHeader header) {
+            this.header = header;
+        }
+        
         public Invoice build() {
-            return new Invoice(itemList);
+            return new Invoice(itemList, header);
         }
     
 }

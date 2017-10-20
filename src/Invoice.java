@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,9 +15,11 @@ import java.util.ArrayList;
 public class Invoice {
     
     final ArrayList<LineItem> itemList;
+    InvoiceHeader header;
     
-    public Invoice(ArrayList<LineItem> itemList) {
+    public Invoice(ArrayList<LineItem> itemList, InvoiceHeader header) {
         this.itemList = itemList;
+        this.header = header;
     }
     
     public Money calcTotal() {
