@@ -12,16 +12,10 @@ import java.util.Date;
  *
  * @author mike-
  */
-public class BackdatedInvoiceHeader implements InvoiceHeader {
+public class BackdatedInvoiceHeader extends InvoiceHeader {
     
-    LocalDateTime date;
-    int invoiceNumber;
-    Receiver receiver;
-    
-    public BackdatedInvoiceHeader(Date date, int invoiceNumber, Receiver receiver) {
-        LocalDateTime.from(date.toInstant()).minusDays(10);
-        this.invoiceNumber = invoiceNumber;
-        this.receiver = receiver;
+    public BackdatedInvoiceHeader(LocalDateTime date, int invoiceNumber, Receiver receiver) {
+        super(date, invoiceNumber, receiver);
     }
     
 }

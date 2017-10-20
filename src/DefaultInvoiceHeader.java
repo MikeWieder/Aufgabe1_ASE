@@ -1,4 +1,5 @@
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /*
@@ -11,16 +12,12 @@ import java.util.Date;
  *
  * @author mike-
  */
-public class DefaultInvoiceHeader {
+public class DefaultInvoiceHeader extends InvoiceHeader {
     
-    Date date;
-    int invoiceNumber;
-    Receiver receiver;
-    
-    public DefaultInvoiceHeader(Date date, int invoiceNumber, Receiver receiver) {
-        this.date = date;
-        this.invoiceNumber = invoiceNumber;
-        this.receiver = receiver;
+    public DefaultInvoiceHeader(LocalDateTime date, int invoiceNumber, Receiver receiver) {
+        super(date, invoiceNumber, receiver);
     }
+    
+    
     
 }
