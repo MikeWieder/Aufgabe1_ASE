@@ -17,6 +17,9 @@ public class Main {
         Money m1 = new Money(15,29);
         Money m2 = new Money(29,66);
         Money m3 = new Money(79,129);
+
+
+        System.out.println(actions.multiply(m3,0.19));
 //        Money m4 = new Money(12,888);
 //        Money m5 = new Money (13,-347);
 //        Money m6 = new Money(1871,87);
@@ -27,11 +30,11 @@ public class Main {
 
 //        System.out.println(actions.multiply(m6, 6865.86));
 
-        InvoiceBuilder builder = new InvoiceBuilder();
+       /* InvoiceBuilder builder = new InvoiceBuilder();
         builder.addLineItem(m3, "Rick&Morty Season2", 2);
         builder.addLineItem(m1, "Pizza Hawaii", 5);
         Invoice i = builder.build();
-        System.out.println(i.calcTotal());
+        System.out.println(i.calcTotal()); */
         
     }
     

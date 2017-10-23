@@ -13,12 +13,14 @@ public final class LineItem {
     final Money single;
     Money total;
     final String desc;
+    String taxType;
     int amount;
     
-    public LineItem(Money single, String desc, int amount) {
+    public LineItem(Money single, String desc, int amount, String taxType) {
         this.single = single;
         this.desc = desc;
         this.amount = amount;
+        this.taxType = taxType;
         calcTotal();
 //        System.out.println("Total: " + total);
     }

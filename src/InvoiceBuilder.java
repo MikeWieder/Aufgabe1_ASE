@@ -15,13 +15,18 @@ public class InvoiceBuilder {
     
         ArrayList<LineItem> itemList = new ArrayList<>();
         InvoiceHeader header;
+        TaxStrategy taxStrategy;
 
         public InvoiceBuilder() {
             
         }
         
-        public void addLineItem(Money single, String desc, int amount) {
-            itemList.add(new LineItem(single,desc,amount));
+        public void addLineItem(LineItem lineItem) {
+            itemList.add(lineItem);
+        }
+
+        public void addTaxStrategy(TaxStrategy taxStrategy) {
+            this.taxStrategy = taxStrategy;
         }
         
         public void addHeader(InvoiceHeader header) {
@@ -29,7 +34,7 @@ public class InvoiceBuilder {
         }
         
         public Invoice build() {
-            return new Invoice(itemList, header);
+            return new Invoice(itemList, header, taxStrategy);
         }
     
 }

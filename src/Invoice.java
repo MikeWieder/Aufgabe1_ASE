@@ -16,13 +16,15 @@ public class Invoice {
     
     final ArrayList<LineItem> itemList;
     InvoiceHeader header;
+    TaxStrategy taxStrategy;
     
-    public Invoice(ArrayList<LineItem> itemList, InvoiceHeader header) {
+    public Invoice(ArrayList<LineItem> itemList, InvoiceHeader header, TaxStrategy taxStrategy) {
         this.itemList = itemList;
         this.header = header;
+        this.taxStrategy = taxStrategy;
     }
     
-    public Money calcTotal() {
+    public Money calcNetTotal() {
         MoneyActions action = new MoneyActions();
         Money inter = new Money(0,0);
         for(LineItem i : itemList) {
@@ -30,5 +32,11 @@ public class Invoice {
         }
         return inter;
     }
-    
+
+    public Money calcGrossTotal() {
+        MoneyActions actions = new MoneyActions();
+        Money netTotal = calcNetTotal();
+        return actions.add(netTotal, taxStrategy.calculateTax(this));
+    }
+
 }
