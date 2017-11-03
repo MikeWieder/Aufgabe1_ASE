@@ -33,7 +33,9 @@ public class InvoiceBuilder {
             this.header = header;
         }
         
-        public Invoice build() {
+        public Invoice build() throws Exception {
+            if(itemList == null || header == null || taxStrategy == null) throw new Exception("Missing at least one value");
+            
             return new Invoice(itemList, header, taxStrategy);
         }
     

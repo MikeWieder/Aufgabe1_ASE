@@ -1,16 +1,16 @@
 public class ComplexTaxStrategy implements TaxStrategy{
 
-    int defaultRate = 19;
-    int reducedRate = 7;
-    int taxRate = defaultRate;
+    double defaultRate = 0.19;
+    double reducedRate = 0.07;
+    double taxRate = defaultRate;
 
     @Override
     public Money calculateTax(Invoice invoice) {
         Money tax = new Money(0,0);
         MoneyActions actions = new MoneyActions();
         for(LineItem i : invoice.itemList) {
-            if(i.taxType == "A") taxRate = reducedRate;
-            actions.add(tax,actions.multiply(i.total,taxRate));
+            if("A".equals(i.taxType)) taxRate = reducedRate; else taxRate = defaultRate; 
+           tax = actions.add(tax,actions.multiply(i.total,taxRate));
         }
         return tax;
     }

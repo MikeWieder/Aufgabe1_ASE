@@ -10,15 +10,13 @@
  */
 public final class LineItem {
     
-    final Money single;
     Money total;
-    final String desc;
     String taxType;
     int amount;
+    Article article;
     
-    public LineItem(Money single, String desc, int amount, String taxType) {
-        this.single = single;
-        this.desc = desc;
+    public LineItem(Money single, String desc, int amount, String taxType, Article article) {
+        this.article = article;
         this.amount = amount;
         this.taxType = taxType;
         calcTotal();
@@ -28,7 +26,7 @@ public final class LineItem {
     public void calcTotal() {
         MoneyActions actions = new MoneyActions();
 //        return actions.multiply(new Money(single.full,single.cents), amount);
-        total = actions.multiply(new Money(single.full,single.cents), amount);
+        total = actions.multiply(new Money(article.price.full,article.price.cents), amount);
     }
     
     

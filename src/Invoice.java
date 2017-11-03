@@ -36,7 +36,9 @@ public class Invoice {
     public Money calcGrossTotal() {
         MoneyActions actions = new MoneyActions();
         Money netTotal = calcNetTotal();
-        return actions.add(netTotal, taxStrategy.calculateTax(this));
+        Money tax = taxStrategy.calculateTax(this);
+        System.out.println(tax);
+        return actions.add(netTotal, tax);
     }
 
 }

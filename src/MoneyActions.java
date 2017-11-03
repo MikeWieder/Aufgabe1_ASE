@@ -32,9 +32,18 @@ public class MoneyActions {
     }
     
     public Money multiply(Money m, double f) {
-        int fi = (int)f;
-        double fRest = f - (double)fi;
-        System.out.println((int)(m.cents*f));
-        return new Money((int)(m.full*fi),(int)(m.cents*f) + (int)((m.full*fRest)*100));
+        
+        double cents = m.full*100 + m.cents;
+        return new Money(0,(int)(cents*f));
+        
+        
+        
+        
+        
+        
+//        int fi = (int)f;
+//        double fRest = f - (double)fi;
+//        System.out.println((int)(m.cents*f));
+//        return new Money((int)(m.full*fi),(int)(m.cents*f) + (int)((m.full*fRest)*100));
     }
 }
