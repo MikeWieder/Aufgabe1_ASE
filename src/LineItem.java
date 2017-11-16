@@ -19,11 +19,11 @@ public final class LineItem {
         this.article = article;
         this.amount = amount;
         this.taxType = taxType;
-        calcTotal();
+        calcNetTotal();
 //        System.out.println("Total: " + total);
     }
     
-    public void calcTotal() {
+    public void calcNetTotal() {
         MoneyActions actions = new MoneyActions();
 //        return actions.multiply(new Money(single.full,single.cents), amount);
         total = actions.multiply(new Money(article.price.full,article.price.cents), amount);
